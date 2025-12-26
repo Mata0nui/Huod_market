@@ -122,7 +122,7 @@
                                     <li data-filter=".{{ category.slug }}">
                                         <div class="categories-bars-item">
                                             <a href="#">{{ category.name_ua }}</a>
-                                            <span>(3)</span>
+                                            <span>({{ category.products_count }})</span> <!-- Добавить отображение количества продуктов в категориях -->
                                         </div>
                                     </li>
                                 {% endfor %}

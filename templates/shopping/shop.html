@@ -163,16 +163,16 @@
                                                 <div class="products-mini-img border-end h-100">
                                                     <a href="{{ item.get_absolute_url }}"><img src="{{ item.main_image.url }}" class="img-fluid w-100 h-100"
                                                         alt="Image"></a>
-                                                    <div class="products-mini-icon rounded-circle bg-primary">
-                                                        <a href="{{ item.get_absolute_url }}"><i class="fa fa-eye fa-1x text-white"></i></a>
-                                                    </div>
+                                                    <a href="{{ item.get_absolute_url }}"><div class="products-mini-icon rounded-circle bg-primary">
+                                                        <i class="fa fa-eye fa-1x text-white"></i>
+                                                    </div></a>
                                                 </div>
                                             </div>
                                             <div class="col-7">
                                                 <div class="products-mini-content p-3">
                                                     <a href="{{ item.get_absolute_url }}" class="d-block mb-2">{{ item.title }}</a>
                                                     <a href="{{ item.get_absolute_url }}" class="d-block h4">{{ item.description }}</a>
-                                                    <span class="text-primary fs-5">${{ item.price }}</span>
+                                                    <span class="text-primary fs-5">{{ item.price }}₴</span>
                                                 </div>
                                             </div>
                                         </div>
