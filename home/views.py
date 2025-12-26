@@ -17,7 +17,7 @@ def login_user(request):
             return redirect('login')
     
     else:
-        return render(request, 'members/login.html', {}, context={'page_title': 'Login'})
+        return render(request, 'members/login.html', context={'page_title': 'Login'})
 
 def logout_user(request):
     logout(request)
@@ -43,9 +43,7 @@ def register_user(request):
         'form':form,
     }, context={'page_title': 'Register'})
 
-# Create your views here.
-def home_page(request):
-    return render(request, 'shopping/shop.html', context={'page_title': 'Home'})
+
 
 def checkout_page(request):
     return render(request, 'shopping/cheackout.html', context={'page_title': 'Checkout'})

@@ -25,7 +25,7 @@ class Product(models.Model):
     short_description = models.TextField()
     long_description = models.TextField()
     # palitre = models.ManyToManyField(Color, blank=True, related_name="products")
-    main_image = models.ImageField(upload_to='products/', null=True, blank=True)
+    main_image = models.ImageField(upload_to='static/images/', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     
     class Meta:
