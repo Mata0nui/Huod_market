@@ -83,7 +83,7 @@
                         </div>
                         <div class="col-xl-6">
                             <h4 class="fw-bold mb-3">{{ product.title }}</h4>
-                            <p class="mb-3">Category: Electronics</p>
+                            <p class="mb-3">Категорія: {{ product.category.name_ua }}</p>
                             <h5 class="fw-bold mb-3">{{ product.price }}</h5>
                             <div class="d-flex mb-4">
                                 <i class="fa fa-star text-secondary"></i>
@@ -102,10 +102,7 @@
                                 <small>Product SKU: N/A</small>
                                 <small>Available: <strong class="text-primary">20 items in stock</strong></small>
                             </div>
-                            <p class="mb-4">The generated Lorem Ipsum is therefore always free from repetition injected
-                                humour, or non-characteristic words etc.</p>
-                            <p class="mb-4">Susp endisse ultricies nisi vel quam suscipit. Sabertooth peacock flounder;
-                                chain pickerel hatchetfish, pencilfish snailfish</p>
+                            <p class="mb-4">{{ product.short_description }}</p>
                             <div class="input-group quantity mb-5" style="width: 100px;">
                                 <div class="input-group-btn">
                                     <button class="btn btn-sm btn-minus rounded-circle bg-light border">
@@ -128,7 +125,7 @@
                                 <div class="nav nav-tabs mb-3">
                                     <button class="nav-link active border-white border-bottom-0" type="button"
                                         role="tab" id="nav-about-tab" data-bs-toggle="tab" data-bs-target="#nav-about"
-                                        aria-controls="nav-about" aria-selected="true">{{ product.long_description }}</button>
+                                        aria-controls="nav-about" aria-selected="true">{{ product.title }}</button>
                                     <button class="nav-link border-white border-bottom-0" type="button" role="tab"
                                         id="nav-mission-tab" data-bs-toggle="tab" data-bs-target="#nav-mission"
                                         aria-controls="nav-mission" aria-selected="false">Reviews</button>
@@ -137,13 +134,7 @@
                             <div class="tab-content mb-5">
                                 <div class="tab-pane active" id="nav-about" role="tabpanel"
                                     aria-labelledby="nav-about-tab">
-                                    <p>Our new <b class="fw-bold">{{item.description}}</b> collection
-                                        that has been
-                                        designed with the
-                                        modern
-                                        lifestyle in mind. Featuring a range of styles from casual to formal, our
-                                        collection
-                                        offers something for every occasion.
+                                    <p><b class="fw-bold">{{ product.long_description }}</b> 
                                 </div>
                                 <div class="tab-pane" id="nav-mission" role="tabpanel"
                                     aria-labelledby="nav-mission-tab">
@@ -162,9 +153,7 @@
                                                     <i class="fa fa-star"></i>
                                                 </div>
                                             </div>
-                                            <p>The generated Lorem Ipsum is therefore always free from repetition
-                                                injected humour, or non-characteristic
-                                                words etc. Susp endisse ultricies nisi vel quam suscipit </p>
+                                            <p>Чудово!</p>
                                         </div>
                                     </div>
                                     <div class="d-flex">
