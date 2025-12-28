@@ -37,7 +37,7 @@
                         <ul class="list-unstyled">
                             {% for category in categories %}
                                 <li data-filter=".{{ category.slug }}">
-                                    <a href="{{ category.get_absolute_url }}">{{ category.name_ua }}</a>
+                                    <a href="?category_r={{ category.slug }}">{{ category.name_ua }}</a>
                                 </li>
                             {% endfor %}
                         </ul>
@@ -152,17 +152,17 @@
                         </div>
 
                     </div>
-                    <div class="tab-content">
+                    <div class="tab-content" >
                         <div id="tab-6" class="products tab-pane fade show p-0 active">
                             <div class="row g-4 products-mini">
                                 {% for item in products %}
-                                <div class="col-lg-6">
-                                    <div class="products-mini-item border">
+                                <div class="col-lg-6" >
+                                    <div class="products-mini-item border" onclick=window.location.href='{{ item.get_absolute_url }}'>
                                         <div class="row g-0">
                                             <div class="col-5">
                                                 <div class="products-mini-img border-end h-100">
-                                                    <a href="{{ item.get_absolute_url }}"><img src="{{ item.main_image.url }}" class="img-fluid w-100 h-100"
-                                                        alt="Image"></a>
+                                                    <img src="{{ item.main_image.url }}" class="img-fluid w-100 h-100"
+                                                        alt="Image">
                                                     <a href="{{ item.get_absolute_url }}"><div class="products-mini-icon rounded-circle bg-primary">
                                                         <i class="fa fa-eye fa-1x text-white"></i>
                                                     </div></a>

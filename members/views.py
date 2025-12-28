@@ -43,7 +43,7 @@ def register_user(request):
         form = UserCreationForm()
     return render(request, 'members/register_user.html', {
         'form':form,
-    }, context={'page_title': 'Register'})
+    'page_title': 'Register'})
 
 def profile_page(request):
     return render(request, 'members/profile.html', context={'page_title': 'User Profile'})

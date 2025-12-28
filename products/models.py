@@ -9,6 +9,8 @@ class Category(models.Model):
     name_ua = models.CharField("Name in Ukrainian", max_length=100)
     name_en = models.CharField("Name in English", max_length=100)
     
+    def get_absolute_url(self):
+        return reverse("category_filter", kwargs={"slug": self.slug})
 # class Color:
 #     name = models.CharField(50)
 #     hex_color = models.CharField(7 , default="#00000")

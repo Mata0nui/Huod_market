@@ -121,7 +121,7 @@
                                 {% for category in categories %}
                                     <li data-filter=".{{ category.slug }}">
                                         <div class="categories-bars-item">
-                                            <a href="#">{{ category.name_ua }}</a>
+                                            <a href="{{ category.get_absolute_url }}">{{ category.name_ua }}</a>
                                             <span>({{ category.products_count }})</span> <!-- Добавить отображение количества продуктов в категориях -->
                                         </div>
                                     </li>
