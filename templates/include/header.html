@@ -80,11 +80,11 @@
                         <input class="form-control border-0 rounded-pill w-100 py-3" type="text"
                             data-bs-target="#dropdownToggle123" placeholder="Search Looking For?">
                         <select class="form-select text-dark border-0 border-start rounded-0 p-3" style="width: 200px;">
-                            <option value="All Category">All Category</option>
-                            <option value="Pest Control-2">Category 1</option>
-                            <option value="Pest Control-3">Category 2</option>
-                            <option value="Pest Control-4">Category 3</option>
-                            <option value="Pest Control-5">Category 4</option>
+                            {% for category in categories %}
+                                <option data-filter=".{{ category.slug }}">
+                                    <a value="?category_r={{ category.slug }}">{{ category.name_ua }}</a>
+                                </option>
+                            {% endfor %}
                         </select>
                         <button type="button" class="btn btn-primary rounded-pill py-3 px-5" style="border: 0;"><i
                                 class="fas fa-search"></i></button>
@@ -119,12 +119,12 @@
                         <div class="navbar-nav ms-auto py-0">
                             <ul class="list-unstyled categories-bars">
                                 {% for category in categories %}
-                                    <li data-filter=".{{ category.slug }}">
+                                    <a href="{{ category.get_absolute_url }}"><li data-filter=".{{ category.slug }}">
                                         <div class="categories-bars-item">
-                                            <a href="{{ category.get_absolute_url }}">{{ category.name_ua }}</a>
+                                            {{ category.name_ua }}
                                             <span>({{ category.products_count }})</span> <!-- Добавить отображение количества продуктов в категориях -->
                                         </div>
-                                    </li>
+                                    </li></a>
                                 {% endfor %}
                             </ul>
                         </div>
