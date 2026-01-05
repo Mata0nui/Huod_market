@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.conf import settings
 
 # Create your models here.
 class Category(models.Model):
@@ -25,7 +26,8 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2, default=None)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     short_description = models.TextField()
-    long_description = models.TextField()
+    long_description = models.TextField(null=True)
+    quantity = models.IntegerField(null=True, default=0)
     # palitre = models.ManyToManyField(Color, blank=True, related_name="products")
     main_image = models.ImageField(upload_to='static/images/', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -38,4 +40,8 @@ class Product(models.Model):
     
     def get_absolute_url(self):
         return reverse("product_detail", kwargs={"slug": self.slug})
+    
+class Comment(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     

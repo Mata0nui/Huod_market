@@ -2,12 +2,20 @@
 {% load static%}
 
 {% block content %}
+
 <h1 class="col-6 col-md-4 col-lg-2 wow fadeInUp">Hello, {{ user.username }}!</h1>
 {% csrf_token %}
 {% if user.is_staff %}
 <p class="position-absolute  d-flex flex-column align-items-center justify-content-center text-center wow fadeInUp">Here's Your Admin Club Invite: <a href="{% url 'admin:index' %}"><img
             src="{% static 'images/admin_club_invite.png' %}" width="30" height="30" /></a></p>
 {% else %}
+<form action="{% url "profile_edit_page" %}" method="post">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+        <br></br>
+        <input type="submit" value="Submit" class="btn btn-secondary">
+    </form>
 <p>You are a regular user.</p>
 {% endif %}
 {% endblock %}

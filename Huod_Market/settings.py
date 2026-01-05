@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'home',
     'products',
     'members',
+    'account',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +126,5 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 handler404 = 'home.views.error_404_page'
+
+AUTH_USER_MODEL = "account.CustomUser"
