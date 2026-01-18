@@ -75,7 +75,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="additional-product mb-4">
+                    {% comment %} <div class="additional-product mb-4">
                         <h4>Additional Products</h4>
                         <div class="additional-product-item">
                             <input type="radio" class="me-2" id="Categories-1" name="Categories-1" value="Beverages">
@@ -97,7 +97,7 @@
                             <input type="radio" class="me-2" id="Categories-5" name="Categories-1" value="Beverages">
                             <label for="Categories-5" class="text-dark"> SmartPhone & Smart TV</label>
                         </div>
-                    </div>
+                    </div> {% endcomment %}
                     </a>
                     <div class="product-tags py-4">
                         <h4 class="mb-3">PRODUCT TAGS</h4>
@@ -117,14 +117,14 @@
                 </div>
                 <div class="col-lg-9 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="rounded mb-4 position-relative">
-                        <img src="{% static 'images/product-banner-3.jpg' %}" class="img-fluid rounded w-100" style="height: 250px;"
+                        <img src="{% static 'images/korzinka.png' %}" class="img-fluid rounded w-100" style="height: 250px;"
                             alt="Image">
-                        <div class="position-absolute rounded d-flex flex-column align-items-center justify-content-center text-center"
-                            style="width: 100%; height: 250px; top: 0; left: 0; background: rgba(242, 139, 0, 0.3);">
-                            <h4 class="display-5 text-primary">SALE</h4>
-                            <h3 class="display-4 text-white mb-4">Get UP To 50% Off</h3>
-                            <a href="#" class="btn btn-primary rounded-pill">Shop Now</a>
-                        </div>
+                        <div class="position-absolute rounded d-flex flex-column align-items-center justify-content-center text-center image-border"
+                            style="width: 100%; height: 250px; top: 0; left: 0; background: rgba(67, 112, 51, 0.35); ">
+                            <h4 class="display-5 text-primary">Знижка!</h4>
+                            <h3 class="display-4 text-white mb-4">До 50%</h3>
+                            <a href="#" class="btn btn-primary rounded-pill">Закупись продуктами!</a>
+                        </div>  
                     </div>
                     <div class="row g-4">
                         <div class="col-xl-7">
@@ -194,7 +194,7 @@
                                     </div>
                                 </div>
                                 {% endfor %}
-                                <div class="col-12 wow fadeInUp" data-wow-delay="0.1s">
+                                {% comment %} <div class="col-12 wow fadeInUp" data-wow-delay="0.1s">
                                     <div class="pagination d-flex justify-content-center mt-5">
                                         <a href="#" class="rounded">&laquo;</a>
                                         <a href="#" class="active rounded">1</a>
@@ -205,7 +205,7 @@
                                         <a href="#" class="rounded">6</a>
                                         <a href="#" class="rounded">&raquo;</a>
                                     </div>
-                                </div>
+                                </div> {% endcomment %}
                             </div>
                         </div>
                     </div>
@@ -216,7 +216,7 @@
     <!-- Shop Page End -->
 
     <!-- Product Banner Start -->
-    <div class="container-fluid py-5">
+    {% comment %} <div class="container-fluid py-5">
         <div class="container pb-5">
             <div class="row g-4">
                 <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
@@ -231,8 +231,8 @@
                             </div>
                         </div>
                     </a>
-                </div>
-                <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.2s">
+                </div> {% endcomment %}
+                {% comment %} <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.2s">
                     <a href="#">
                         <div class="text-center bg-primary rounded position-relative">
                             <img src="{% static 'images/product-banner-2.jpg' %}" class="img-fluid w-100" alt="">
@@ -241,7 +241,7 @@
                                 <h2 class="display-2 text-secondary">SALE</h2>
                                 <h4 class="display-5 text-white mb-4">Get UP To 50% Off</h4>
                                 <a href="#" class="btn btn-secondary rounded-pill align-self-center py-2 px-4">Shop
-                                    Now</a>
+                                    Now</a> {% endcomment %}
                             </div>
                         </div>
                     </a>
@@ -251,7 +251,7 @@
     </div>
     <!-- Product Banner End -->
 
-     
+
 
 
 {% endblock %}
