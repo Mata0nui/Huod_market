@@ -6,4 +6,6 @@ User = get_user_model()
 # Register your models here.
 @admin.register(User)
 class CustomUserAdmin(UserAdmin):
-    pass
+    fieldsets = UserAdmin.fieldsets + (
+        (None, {'fields': ('avatar', 'balance')}),
+    )
