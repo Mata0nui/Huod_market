@@ -6,4 +6,5 @@ urlpatterns = [
     path('', shop_page, name='home'),
     path('product/<slug:slug>/', product_page, name='product_detail'),
     path('category/<slug:slug>/', category_filter, name='category_filter'),
+    path('api/receive-data/', receive_data, name='receive_data'),
 ]

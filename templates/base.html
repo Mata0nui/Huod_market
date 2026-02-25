@@ -37,6 +37,7 @@
     {% include 'include/header.html' %}
     
     {% block content %}
+    <form style="display:none">{% csrf_token %}</form>
     {% endblock %}
 
     {% include 'include/footer.html' %}

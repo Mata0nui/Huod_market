@@ -107,8 +107,7 @@ page_title = document.querySelectorAll('.text-center.text-white.display-6.wow.fa
     $(".single-carousel").owlCarousel({
         autoplay: true,
         smartSpeed: 1500,
-        dots: true,
-        dotsData: true,
+        dots: false,
         loop: true,
         items: 1,
         nav : true,
