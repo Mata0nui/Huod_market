@@ -1,10 +1,94 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load static %}
 
 {% block content %}
+<div class="container-fluid shop py-5">
+    <div class="container py-5">
+        <div class="row g-4">
+            <div class="col-12 wow fadeInUp" data-wow-delay="0.1s">
+                <h2 class="mb-4">Your Cart</h2>
+                {% if messages %}
+                <div class="mb-3">
+                    {% for message in messages %}
+                    {% if 'cart' in message.tags %}
+                    <div class="alert alert-{{ message.tags|default:'info' }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                {% endif %}
 
+                {% if status %}
+                <div class="table-responsive border rounded">
+                    <table class="table align-middle mb-0">
+                        <thead class="bg-light">
+                            <tr>
+                                <th scope="col">Product</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col" class="text-end">Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in cart_items %}
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        {% if item.cart.product.main_image %}
+                                        <img src="{{ item.cart.product.main_image.url }}" alt="{{ item.cart.product.title }}" class="rounded" style="width: 64px; height: 64px; object-fit: cover;">
+                                        {% else %}
+                                        <div class="rounded bg-light d-inline-block" style="width: 64px; height: 64px;"></div>
+                                        {% endif %}
+                                        <div class="ms-3">
+                                            <a href="{{ item.cart.product.get_absolute_url }}" class="text-dark fw-semibold">{{ item.cart.product.title }}</a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>{{ item.cart.product.price }} UAH</td>
+                                <td>{{ item.cart.quantity }}</td>
+                                <td class="text-end fw-semibold">{{ item.line_total }} UAH</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
 
+                <div class="row justify-content-end mt-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="border rounded p-4 bg-light">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="mb-0">Total</h5>
+                                <h4 class="mb-0 text-primary">{{ cart_total }} UAH</h4>
+                            </div>
 
+                            <form method="post" action="{% url 'clear_cart' %}" class="mb-2">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-outline-secondary rounded-pill w-100 py-2">
+                                    <i class="fa fa-trash me-2"></i>Clear Cart
+                                </button>
+                            </form>
 
-
+                            <form method="post" action="{% url 'pay_cart' %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-primary rounded-pill w-100 py-2">
+                                    <i class="fa fa-credit-card me-2"></i>Pay Now
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="text-center border rounded py-5 px-4">
+                    <i class="fa fa-shopping-cart fa-3x text-secondary mb-3"></i>
+                    <h4 class="mb-2">Your cart is empty</h4>
+                    <p class="text-muted mb-4">Add products from the catalog to continue.</p>
+                    <a href="{% url 'home' %}" class="btn btn-primary rounded-pill px-4 py-2">Go to shop</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

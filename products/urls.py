@@ -7,4 +7,7 @@ urlpatterns = [
     path('product/<slug:slug>/', product_page, name='product_detail'),
     path('category/<slug:slug>/', category_filter, name='category_filter'),
     path('api/receive-data/', receive_data, name='receive_data'),
+    path('cart', cart_page, name='cart_page'),
+    path('cart/clear', clear_cart, name='clear_cart'),
+    path('cart/pay', pay_cart, name='pay_cart')
 ]

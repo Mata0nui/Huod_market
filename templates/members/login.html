@@ -1,19 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Login page</h1>
-    <form action=" " method="post">
+<div class="container py-5">
+    <h1 class="mb-4">Login page</h1>
+    <form method="post" action="{% url 'login' %}">
         {% csrf_token %}
-        
-        <form>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Username</label>
-    <input type="text" class="form-control" name="username" aria-describedby="emailHelp">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" name="password">
-  </div>
-  <input type="submit" value="Submit" class="btn btn-secondary">
+        <div class="mb-3">
+            <label for="id_username" class="form-label">Username</label>
+            <input id="id_username" type="text" class="form-control" name="username" required>
+        </div>
+        <div class="mb-3">
+            <label for="id_password" class="form-label">Password</label>
+            <input id="id_password" type="password" class="form-control" name="password" required>
+        </div>
+        <input type="submit" value="Submit" class="btn btn-secondary">
     </form>
+</div>
 {% endblock %}

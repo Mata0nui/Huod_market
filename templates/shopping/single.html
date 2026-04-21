@@ -108,7 +108,7 @@
                                         <i class="fa fa-minus"></i>
                                     </button>
                                 </div>
-                                <input type="text" class="form-control form-control-sm text-center border-0" value="1">
+                                <input type="text" class="form-control form-control-sm text-center border-0 product-quantity-input" value="1">
                                 <div class="input-group-btn">
                                     <button class="btn btn-sm btn-plus rounded-circle bg-light border">
                                         <i class="fa fa-plus"></i>
@@ -458,6 +458,9 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
 
       const productId = btn.dataset.productId;
+      const qtyInput = document.querySelector(".product-quantity-input");
+      const parsedQty = parseInt((qtyInput?.value || "1"), 10);
+      const productQuantity = Number.isNaN(parsedQty) || parsedQty < 1 ? 1 : parsedQty;
       const csrftoken = getCookie("csrftoken");
 
       const res = await fetch("/api/receive-data/", {
@@ -467,7 +470,7 @@ document.addEventListener("DOMContentLoaded", () => {
           "Content-Type": "application/json",
           "X-CSRFToken": csrftoken
         },
-        body: JSON.stringify({ product_id: productId })
+        body: JSON.stringify({ product_id: productId, product_quantity: productQuantity })
       });
 
       const text = await res.text();
